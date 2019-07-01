@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HomeWork711</string>
+    <string name="buttonLink">Синхронизация</string>
+    <string name="textMorning">Morning activity</string>
+    <string name="textAfternoon">Afternoon activity</string>
+    <string name="textEvening">Evening activity</string>
+    <string name="synhro">С и н х р о н и з а ц и я</string>
+
+</resources>
