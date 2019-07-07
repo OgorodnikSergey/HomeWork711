@@ -17,18 +17,17 @@ import java.util.Date;
 import java.util.Timer;
 
 public class AfternoonActivity extends AppCompatActivity {
-    TextView text;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afternoon);
-        text = (TextView) findViewById(R.id.text);
-        button = (Button) findViewById(R.id.button);
 
-        DateFormat df = new SimpleDateFormat("HH:mm");
-        text.setText("Сейчас " + df.format(Calendar.getInstance().getTime()));
+        TextView  text = (TextView) findViewById(R.id.text);
+        Button button = (Button) findViewById(R.id.button);
+
+        DateFormat df = SimpleDateFormat.getTimeInstance();
+        text.setText(getString(R.string.current_time, df.format(Calendar.getInstance().getTime())));
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,5 +5,6 @@
     <string name="textAfternoon">Afternoon activity</string>
     <string name="textEvening">Evening activity</string>
     <string name="synhro">С и н х р о н и з а ц и я</string>
+    <string name="current_time">Время: %1$s часов</string>
 
 </resources>

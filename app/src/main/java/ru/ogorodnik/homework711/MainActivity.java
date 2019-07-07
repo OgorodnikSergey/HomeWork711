@@ -17,37 +17,33 @@ import java.util.Date;
 import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
-    TextView text;
-    Button buttonLink;
-    public int hourofday;
+
+    private static final int MORNING_START_HOUR = 6;
+    private static final int AFTERNOON_START_HOUR = 14;
+    private static final int EVENING_START_HOUR = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        text = (TextView) findViewById(R.id.text);
-        buttonLink = (Button) findViewById(R.id.buttonLink);
+        TextView  text = (TextView) findViewById(R.id.text);
+        Button buttonLink = (Button) findViewById(R.id.buttonLink);
 
-        text.setText("Сейчас " + String.valueOf(takeHour()) + " часов");
+        text.setText(getString(R.string.current_time, String.valueOf(takeHour())));
 
         buttonLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_SYNC);
-
-                if (takeHour() >= 6 && takeHour() < 14) {
+                if (takeHour() >= MORNING_START_HOUR && takeHour() < AFTERNOON_START_HOUR) {
                     intent.setData(Uri.parse("http://morning"));
-                    startActivity(intent);
-                }
-
-                if (takeHour() >= 14 && takeHour() < 15){
+                } else if (takeHour() >= AFTERNOON_START_HOUR && takeHour() < EVENING_START_HOUR) {
                     intent.setData(Uri.parse("http://afternoon"));
-                    startActivity(intent);
-                }
-                else
+                } else {
                     intent.setData(Uri.parse("http://evening"));
-                    startActivity(intent);
+                }
+                startActivity(intent);
             }
 
         });
